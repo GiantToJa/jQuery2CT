@@ -9,6 +9,7 @@
     <script>
         $(document).ready(function(){
             $("button").click(function(){
+                $("button").css("display","none");
                 for(let i=1; i<=10; i++){
                     $("#paragraf").css("color","red").slideUp(500).slideDown(500);
                 }
