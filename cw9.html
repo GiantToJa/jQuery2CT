@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>jQuery</title>
+    <script>
+        $(document).ready(function(){
+            $("#przycisk1").click(function(){
+                $("#napis1").text("My o tym doskonale wiemy");
+            });
+            $("#przycisk2").click(function(){
+                $("#napis2").html("<h1>W istocie tak</h1>");
+            });
+            $("#przycisk3").click(function(){
+                $("#napis3").val("I u mnie jest jQuery...");
+            });
+        });
+    </script>
+</head>
+<body>
+    <p id="napis1">To są zajęcia z cyklu: "Ja chcę jeszcze więcej..."</p>
+    <p id="napis2">To jest wielkie szczęście poznać jQuery w samochodówce</p>
+    <p>
+        pole: <input type="text" id="napis3" value="Walerasan to spoko ZIOMAL">
+    </p>
+    <button id="przycisk1">Wyślij TEXT - tekst</button>
+    <button id="przycisk2">Wyślij HTML</button>
+    <button id="przycisk3">Wiślij wartość - value</button>
+</body>
+</html>
