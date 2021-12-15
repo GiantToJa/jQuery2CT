@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>jQuery</title>
+    <script>
+        $(document).ready(function(){
+            $("#przycisk").click(function(){
+                var szerokosc = $(".napis").width();
+                var wysokosc = $(".napis").height();
+                $("#info").html(szerokosc + " : " + wysokosc);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="info"></div>
+    <div id="przycisk">SPRAWDZ SZEROKOSC I WYSOKOSC OBIEKTU</div>
+    <div class="napis">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nesciunt non ipsam, ex quo aliquam quos alias pariatur commodi nihil libero, nulla sapiente et reiciendis voluptatum repellat delectus enim iure?
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur fugit recusandae similique, beatae dolorum, tempore ducimus aliquam, deleniti laboriosam ad quae neque non nemo ex. Natus repellat dolorum perferendis soluta!
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos porro cumque reprehenderit. Eveniet eaque asperiores magni nulla reiciendis amet. Non necessitatibus nisi consequuntur nobis asperiores consequatur, saepe quae ipsa! Inventore.
+    </div>
+</body>
+</html>
