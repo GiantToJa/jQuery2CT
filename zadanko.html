@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Super zadanko ziom</title>
+    <style>
+        #lista{
+            width: 30%;
+            min-height: 1500px;
+            background-color: gray;
+            float: left;
+        }
+        #animacja{
+            width: 70%;
+            float: left;
+            min-height: 300px;
+            background-color: lightblue;
+        }
+        #animowane{
+            background-color: crimson;
+            border: 2px solid black;
+            width: 50px;
+            height: 50px;
+            margin: auto;
+        }
+        #p1{
+            display: none;
+            color: white;
+            text-align: center;
+            font-size: 50px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .mojaklasa{
+            background-color: yellow;
+            color: crimson;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="lista">
+        <h1>Mój Plan Dnia</h1>
+        <input type="text" name="przyciskNAME" placeholder="Nowy Punkt Planu Dnia" />
+        <button id="dodaj">DODAJ</button>
+        <ol id="mojalista"></ol>
+    </div>
+    <div id="animacja">
+        <div id="animowane">
+            <p id="p1">2CT i Walerasan to szefy</p>
+        </div>
+    </div>
+    <div id="kalkulator">
+        <h1>Kalkulator dobryh ziomuf</h1>
+        Podaj pierwszą liczbę: <input type="number" name="l1">
+        Podaj drugą liczbę: <input type="number" name="l2">
+        <br>
+        <h1>Wyniki</h1>
+        <div id="dodawanie"></div>
+        <div id="odejmowanie"></div>
+        <div id="mnozenie"></div>
+        <div id="dzielenie"></div>
+        <button id="przycisk">Oblicz morduniu</button>
+    </div>
+    <script>
+        $(function(){
+           $("#dodaj").on("click",function(){
+                var val = $("input").val();
+                if(val != ""){
+                    var element = $("<li></li>").text(val);
+                    $(element).append("<button class='mojaklasa'>X</button>");
+                    $("#mojalista").append(element);
+                    $("input").val("");
+                    $(".mojaklasa").on("click",function(){
+                        $(this).parent().remove();
+                    });
+                }
+           });
+        });
+        $("#animowane").hover(function(){
+            $(this).animate({width:"+=300px"});
+            $(this).animate({height:"+=200px"});
+            $("#p1").css("display","block");
+        },function(){
+            $(this).animate({width:"-=300px"});
+            $(this).animate({height:"-=200px"});
+            $("#p1").css("display","none");
+        });
+
+        $(function(){
+            $("#przycisk").click(function(){
+                const l1 = $("input[name=l1]").val();
+                const l2 = $("input[name=l2]").val();
+
+                l1 = parseFloat(l1);
+                l2 = parseFloat(l2);
+                const dodawanie = l1 + l2;
+                const odejmowanie = l1 - l2;
+                const mnozenie = l1 * l2;
+                const dzielenie = l1 / l2;
+
+                $("#dodawanie").html("Wynik dodawania = " + dodawanie);
+                $("#odejmowanie").html("Wynik odejmowania = " + odejmowanie);
+                $("#mnozenie").html("Wynik mnożenia = " + mnozenie);
+                $("#dzielenie").html("Wynik dzielenia = " + dzielenie);
+            });
+        });
+    </script>
+</body>
+</html>
