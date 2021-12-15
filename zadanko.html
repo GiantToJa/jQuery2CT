@@ -6,10 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Super zadanko ziom</title>
+    <script>
+        $(function(){
+           $("#dodaj").on("click",function(){
+                var val = $("input").val();
+                if(val != ""){
+                    var element = $("<li></li>").text(val);
+                    $(element).append("<button class='mojaklasa'>X</button>");
+                    $("#mojalista").append(element);
+                    $("input").val("");
+                    $(".mojaklasa").on("click",function(){
+                        $(this).parent().remove();
+                    });
+                }
+           });
+        });
+
+        $(function(){
+            $("#przycisk").click(function(){
+                const l1 = parseInt($("input[name=l1]").val());
+                const l2 = parseInt($("input[name=l2]").val());
+
+                const dodawanie = parseFloat(l1 + l2);
+                const odejmowanie = parseFloat(l1 - l2);
+                const mnozenie = parseFloat(l1 * l2);
+                const dzielenie = parseFloat(l1 / l2);
+
+                $("#dodawanie").html("Wynik dodawania = " + dodawanie);
+                $("#odejmowanie").html("Wynik odejmowania = " + odejmowanie);
+                $("#mnozenie").html("Wynik mnożenia = " + mnozenie);
+                $("#dzielenie").html("Wynik dzielenia = " + dzielenie);
+            });
+        });
+    </script>
     <style>
         #lista{
             width: 30%;
-            min-height: 1500px;
+            min-height: 600px;
             background-color: gray;
             float: left;
         }
@@ -38,6 +71,12 @@
             color: crimson;
             cursor: pointer;
         }
+        #kalkulator{
+            background-color: aquamarine;
+            color: blueviolet;
+            text-align: center;
+            min-height: 600px;
+        }
     </style>
 </head>
 <body>
@@ -65,20 +104,6 @@
         <button id="przycisk">Oblicz morduniu</button>
     </div>
     <script>
-        $(function(){
-           $("#dodaj").on("click",function(){
-                var val = $("input").val();
-                if(val != ""){
-                    var element = $("<li></li>").text(val);
-                    $(element).append("<button class='mojaklasa'>X</button>");
-                    $("#mojalista").append(element);
-                    $("input").val("");
-                    $(".mojaklasa").on("click",function(){
-                        $(this).parent().remove();
-                    });
-                }
-           });
-        });
         $("#animowane").hover(function(){
             $(this).animate({width:"+=300px"});
             $(this).animate({height:"+=200px"});
@@ -87,25 +112,6 @@
             $(this).animate({width:"-=300px"});
             $(this).animate({height:"-=200px"});
             $("#p1").css("display","none");
-        });
-
-        $(function(){
-            $("#przycisk").click(function(){
-                const l1 = $("input[name=l1]").val();
-                const l2 = $("input[name=l2]").val();
-
-                l1 = parseFloat(l1);
-                l2 = parseFloat(l2);
-                const dodawanie = l1 + l2;
-                const odejmowanie = l1 - l2;
-                const mnozenie = l1 * l2;
-                const dzielenie = l1 / l2;
-
-                $("#dodawanie").html("Wynik dodawania = " + dodawanie);
-                $("#odejmowanie").html("Wynik odejmowania = " + odejmowanie);
-                $("#mnozenie").html("Wynik mnożenia = " + mnozenie);
-                $("#dzielenie").html("Wynik dzielenia = " + dzielenie);
-            });
         });
     </script>
 </body>
